@@ -1,0 +1,3 @@
+# hala ibraheem 220210702 ,, aya breaka 220210776 ,, lina tubail 220200405 - Operating Systems Project 
+myshell: myshell.c utility.c myshell.h
+	gcc -Wall myshell.c utility.c -o myshell
