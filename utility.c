@@ -675,7 +675,7 @@ void get_fullpath (char *fullpath, const char *shortpath) {
 
 
 
-/* Function "Command_help" : display the user manual; seek for key word such as <help dir>, output the file "readme" until meeting '#' */
+
 int Command_help (char **args, const Redirect *Outputs, int *states) {
 	FILE *readme;
 	char buffer[MAX_BUFFER];
@@ -698,12 +698,12 @@ int Command_help (char **args, const Redirect *Outputs, int *states) {
 		Execute(buffer);
 		return 0;
 	}
-	readme = fopen(getenv("readme_path"), "r"); // while execute myshell，add readme_path into the environment variables in 							     // initialization phase
-	while (!feof(readme) && fgets(buffer, MAX_BUFFER, readme)) {	// looking for keywords such as   <help dir>
+	readme = fopen(getenv("readme_path"), "r"); 							    
+	while (!feof(readme) && fgets(buffer, MAX_BUFFER, readme)) {	
 		if (strstr(buffer, keywords))
 			break;
 	}
-	while (!feof(readme) && fgets(buffer, MAX_BUFFER, readme)) {	// display from here until meet '#'
+	while (!feof(readme) && fgets(buffer, MAX_BUFFER, readme)) {	
 		if (buffer[0] == '#')
 			break;
 		fputs(buffer, stdout);	// display help information
